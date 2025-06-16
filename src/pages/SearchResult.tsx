@@ -4,8 +4,8 @@ import ReviewCard from '../components/reviews/Review';
 import Pagination from '../components/Pagination';
 
 const SearchResultsPage:React.FC = () => {
-  const [searchQuery, setSearchQuery] = useState('Headphones');
-  const [resultsCount, setResultsCount] = useState(128);
+  const [searchQuery, _setSearchQuery] = useState('Headphones');
+  const [resultsCount, _setResultsCount] = useState(128);
   const [sortOpen, setSortOpen] = useState(false);
   const [selectedSort, setSelectedSort] = useState('Most Relevant');
   const [loading, setLoading] = useState(true);
