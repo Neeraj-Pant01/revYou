@@ -89,7 +89,7 @@
 
 import React, { useState } from 'react';
 import { StarIcon, EllipsisHorizontalIcon } from '@heroicons/react/24/solid';
-import { SparklesIcon, HeartIcon, ChatBubbleBottomCenterTextIcon, BookmarkIcon, ShareIcon } from '@heroicons/react/24/outline';
+import {HeartIcon, ChatBubbleBottomCenterTextIcon, BookmarkIcon, ShareIcon } from '@heroicons/react/24/outline';
 
 type ReviewCardProps = {
   user: {
