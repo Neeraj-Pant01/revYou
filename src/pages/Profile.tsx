@@ -7,7 +7,7 @@ import {
   EllipsisHorizontalIcon
 } from '@heroicons/react/24/solid';
 
-const ProfilePage = () => {
+const ProfilePage:React.FC = () => {
   const [activeTab, setActiveTab] = useState('reviews');
   const [isFollowing, setIsFollowing] = useState(false);
 

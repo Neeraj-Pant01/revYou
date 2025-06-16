@@ -66,7 +66,6 @@ const addCustomStyles = () => {
 const GlobalProgressBar: React.FC = () => {
   const location = useLocation();
   const [isLoading, setIsLoading] = React.useState(false);
-  const [progress, setProgress] = React.useState(0);
 
   useEffect(() => {
     addCustomStyles();

@@ -3,7 +3,7 @@ import { Bars3Icon, UserCircleIcon, MagnifyingGlassIcon, XMarkIcon } from '@hero
 import { ChevronDownIcon, SparklesIcon } from '@heroicons/react/24/solid';
 import { useNavigate } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar:React.FC = () => {
     const [isActive, setIsActive] = useState(false);
     const [showDropdown, setShowDropdown] = useState(false);
     const [searchOpen, setSearchOpen] = useState(false);

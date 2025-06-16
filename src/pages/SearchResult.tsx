@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { FiFilter, FiX, FiSearch, FiSliders, FiStar, FiChevronDown } from 'react-icons/fi';
-import FilterSidebar from '../components/FilterSidebar';
+import {FiChevronDown } from 'react-icons/fi';
 import ReviewCard from '../components/reviews/Review';
 import Pagination from '../components/Pagination';
 
-const SearchResultsPage = () => {
-  const [mobileOpen, setMobileOpen] = useState(false);
+const SearchResultsPage:React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('Headphones');
   const [resultsCount, setResultsCount] = useState(128);
   const [sortOpen, setSortOpen] = useState(false);

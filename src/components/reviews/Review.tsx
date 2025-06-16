@@ -3,7 +3,7 @@ import { StarIcon, SparklesIcon } from '@heroicons/react/24/solid';
 import { HeartIcon } from '@heroicons/react/24/outline';
 import { useNavigate } from 'react-router-dom';
 
-const ReviewCard = () => {
+const ReviewCard:React.FC = () => {
   const [isSaved, setIsSaved] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 

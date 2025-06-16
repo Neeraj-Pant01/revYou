@@ -4,7 +4,7 @@ import { FiFilter, FiX } from 'react-icons/fi';
 import ReviewCard from '../components/reviews/Review';
 import Pagination from '../components/Pagination';
 
-const Reviews = () => {
+const Reviews:React.FC = () => {
     const [mobileOpen, setMobileOpen] = useState(false);
 
     useEffect(() => {

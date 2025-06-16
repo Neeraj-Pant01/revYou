@@ -4,8 +4,6 @@ import {
   FaTwitter, 
   FaInstagram, 
   FaLinkedin,
-  FaYoutube,
-  FaPinterest
 } from 'react-icons/fa';
 import { SparklesIcon } from '@heroicons/react/24/solid';
 

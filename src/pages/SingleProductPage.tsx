@@ -2,9 +2,8 @@ import React, { useEffect, useState } from 'react'
 import SingleREvCard from '../components/singleReview/ReviewCard'
 import DiscussionForm from '../components/singleReview/DiscussionForm'
 import DiscussionComment from '../components/singleReview/DiscussionComment';
-import GradientText from '../components/common/GradientText';
 
-const SingleProductPage = () => {
+const SingleProductPage:React.FC = () => {
   const [comments, setComments] = useState([
     {
       name: "Priya Sharma",

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FiChevronDown, FiChevronUp, FiX } from "react-icons/fi";
 
-const FilterSidebar = () => {
+const FilterSidebar:React.FC = () => {
   const [openSections, setOpenSections] = useState({
     categories: true,
     price: true,

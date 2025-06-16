@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { PhotoIcon, StarIcon, XMarkIcon, CloudArrowUpIcon } from '@heroicons/react/24/outline';
 import { SparklesIcon } from '@heroicons/react/24/solid';
 
-const UploadReviewPage = () => {
+const UploadReviewPage:React.FC = () => {
   const [images, setImages] = useState<File[]>([]);
   const [previewImages, setPreviewImages] = useState<string[]>([]);
   const [rating, setRating] = useState(0);

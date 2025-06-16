@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { EnvelopeIcon, LockClosedIcon, UserIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
 import { Link } from 'react-router-dom';
 
-const AuthForm = () => {
+const AuthForm:React.FC = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [formData, setFormData] = useState({
     name: '',
