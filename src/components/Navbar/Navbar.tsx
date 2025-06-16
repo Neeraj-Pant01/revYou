@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Bars3Icon, UserCircleIcon, MagnifyingGlassIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { ChevronDownIcon, SparklesIcon } from '@heroicons/react/24/solid';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Navbar:React.FC = () => {
     const [isActive, setIsActive] = useState(false);
@@ -114,8 +114,8 @@ const Navbar:React.FC = () => {
                     {/* Right: Navigation */}
                     <div className="flex items-center gap-4">
                         <nav className="hidden md:flex items-center gap-6">
-                            <a href="#" className={`text-sm font-medium ${isActive ? 'text-gray-600 hover:text-purple-600' : 'text-white/90 hover:text-white'} transition-colors`}>Discover</a>
-                            <a href="#" className={`text-sm font-medium ${isActive ? 'text-gray-600 hover:text-purple-600' : 'text-white/90 hover:text-white'} transition-colors`}>Categories</a>
+                            <Link to="/reviews" className={`text-sm font-medium ${isActive ? 'text-gray-600 hover:text-purple-600' : 'text-white/90 hover:text-white'} transition-colors`}>Discover</Link>
+                            <Link to="/reviews/all/categories" className={`text-sm font-medium ${isActive ? 'text-gray-600 hover:text-purple-600' : 'text-white/90 hover:text-white'} transition-colors`}>Categories</Link>
                             <a href="#" className={`text-sm font-medium ${isActive ? 'text-gray-600 hover:text-purple-600' : 'text-white/90 hover:text-white'} transition-colors`}>Pricing</a>
                         </nav>
 

@@ -3,14 +3,54 @@ import { StarIcon, SparklesIcon } from '@heroicons/react/24/solid';
 import { HeartIcon } from '@heroicons/react/24/outline';
 import { useNavigate } from 'react-router-dom';
 
-const ReviewCard:React.FC = () => {
+
+interface ReviewCardProps {
+  variant?: 'grid' | 'list';
+}
+
+const ReviewCard: React.FC<ReviewCardProps> = ({ variant = 'grid' }) => {
   const [isSaved, setIsSaved] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
   const navigate = useNavigate();
 
+  if (variant === 'list') {
+    return (
+      <div className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow p-6 flex gap-6">
+        <div className="flex-shrink-0 w-32 h-32 bg-gradient-to-br from-purple-100 to-pink-50 rounded-lg overflow-hidden">
+          <img
+            src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e"
+            alt="Product"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="flex-1">
+          <h3 className="text-lg font-semibold text-gray-900">Sony WH-1000XM4</h3>
+          <div className="flex items-center mt-1">
+            {[1, 2, 3, 4, 5].map((star) => (
+              <StarIcon
+                key={star}
+                className={`h-5 w-5 ${star <= 4 ? 'text-yellow-400' : 'text-gray-300'}`}
+              />
+            ))}
+            <span className="text-sm text-gray-500 ml-2">(128 reviews)</span>
+          </div>
+          <p className="mt-2 text-gray-600 line-clamp-2">
+            "The noise cancellation is incredible and the sound quality is superb. Battery life lasts me all week!"
+          </p>
+          <div className="mt-4 flex items-center justify-between">
+            <span className="text-lg font-bold text-purple-600">$349.99</span>
+            <button className="text-pink-500 hover:text-pink-600">
+              <HeartIcon className="h-6 w-6" />
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div 
+    <div
       className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -22,9 +62,9 @@ const ReviewCard:React.FC = () => {
           src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRpds_4n9K52keUfORT2dc17rzFaxhG-uHvvBP__TcPYiUQRvYslgrvT4w35qRFWm9JPjxnlARVoNZHapzQuoftwzl7thEYEkg3-qynuaSXrzAS-hiOjf9-lA"
           alt="Apple AirPods Max"
         />
-        
+
         {/* Save Button */}
-        <button 
+        <button
           onClick={() => setIsSaved(!isSaved)}
           className={`absolute top-3 right-3 p-2 rounded-full backdrop-blur-sm transition-all ${isSaved ? 'bg-pink-500 text-white' : 'bg-white/90 text-gray-600 hover:bg-pink-500 hover:text-white'}`}
         >
@@ -46,7 +86,7 @@ const ReviewCard:React.FC = () => {
         {/* Rating */}
         <div className="flex items-center justify-center gap-1">
           {[1, 2, 3, 4, 5].map((star) => (
-            <StarIcon 
+            <StarIcon
               key={star}
               className={`h-5 w-5 ${star <= 4 ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300'}`}
             />
@@ -66,7 +106,7 @@ const ReviewCard:React.FC = () => {
         </div>
 
         {/* Action Button */}
-        <button onClick={()=>navigate(`/review/123`)} className="w-full mt-4 py-2.5 md:px-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:brightness-105 flex items-center text-xs md:text-sm justify-center gap-2">
+        <button onClick={() => navigate(`/review/123`)} className="w-full mt-4 py-2.5 md:px-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:brightness-105 flex items-center text-xs md:text-sm justify-center gap-2">
           <span>Read All Reviews</span>
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />

@@ -23,7 +23,7 @@ const CategoryCard: React.FC<CategoryProp> = ({ c }) => {
         ))}
       </div>
 
-      <Link to={`/reviews`} className="text-indigo-600 text-center font-medium hover:underline hover:text-indigo-700 transition">
+      <Link to={`/reviews/categories/list`} className="text-indigo-600 text-center font-medium hover:underline hover:text-indigo-700 transition">
         See all product reviews →
       </Link>
     </div>

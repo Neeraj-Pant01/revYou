@@ -8,6 +8,8 @@ import ProfilePage from './pages/Profile'
 import SearchResultsPage from './pages/SearchResult'
 import Layout from './layouts/Layout'
 import ProtectedRoute from './components/ProtectedRoute'
+import CategoryPage from './pages/CategoryPage'
+import AllCategories from './pages/AllCategories'
 
 const App = () => {
   return (
@@ -18,11 +20,17 @@ const App = () => {
           <Route path="/" element={<Homepage />} />
           <Route path="/reviews" element={<Reviews />} />
           <Route path="/review/:id" element={<SingleProductPage />} />
+          <Route path='/reviews/search' element={<SearchResultsPage />} />
+          <Route path='/reviews/categories/list' element={<CategoryPage />} />
+          <Route path='/reviews/all/categories' element={<AllCategories />} />
+
+
+          {/* protected routes */}
           <Route element={<ProtectedRoute />}>
           <Route path="/review/profile/:id" element={<ProfilePage />} />
           <Route path="/review/upload" element={<UploadReviewPage />} />
           </Route>
-          <Route path='/reviews/search' element={<SearchResultsPage />} />
+
           </Route>
       </Routes>
     </>
