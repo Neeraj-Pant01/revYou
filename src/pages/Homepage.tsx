@@ -18,7 +18,7 @@ export type bannerTpe = {
 
 const Homepage = () => {
   return (
-    <div className='bg-[#f6f5f5] pb-10 overflow-x-hidden'>
+    <div className='bg-[#f6f5f5] overflow-x-hidden'>
       <div className="flex items-center justify-center">
         <div className='w-[93vw] mt-5'>
           <Slider />
@@ -74,7 +74,7 @@ const Homepage = () => {
           }
         </div>
       </div>
-      <div className="my-10">
+      <div className="mt-10">
       <CommunityBanner />
       </div>
     </div>

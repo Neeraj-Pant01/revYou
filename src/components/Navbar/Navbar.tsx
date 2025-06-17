@@ -2,12 +2,14 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Bars3Icon, UserCircleIcon, MagnifyingGlassIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { ChevronDownIcon, SparklesIcon } from '@heroicons/react/24/solid';
 import { Link, useNavigate } from 'react-router-dom';
+import MobileMenu from '../homepage/MobileMenu';
 
-const Navbar:React.FC = () => {
+const Navbar: React.FC = () => {
     const [isActive, setIsActive] = useState(false);
     const [showDropdown, setShowDropdown] = useState(false);
     const [searchOpen, setSearchOpen] = useState(false);
     const dropdownRef = useRef<HTMLDivElement | null>(null);
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -41,12 +43,13 @@ const Navbar:React.FC = () => {
                     {/* Left: Logo & Menu */}
                     <div className="flex items-center gap-6">
                         <button
+                            onClick={() => setMobileMenuOpen(true)}
                             className={`rounded-full p-2 ${isActive ? 'text-purple-600 hover:bg-purple-50' : 'text-white hover:bg-white/10'} transition-all`}
                         >
                             <Bars3Icon className="h-6 w-6" />
                         </button>
-                        
-                        <div onClick={()=>navigate('/')}  className={`flex cursor-pointer items-center gap-1 ${isActive ? 'text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-500 to-pink-400' : 'text-white'}`}>
+
+                        <div onClick={() => navigate('/')} className={`flex cursor-pointer items-center gap-1 ${isActive ? 'text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-500 to-pink-400' : 'text-white'}`}>
                             <SparklesIcon className={`h-5 w-5 ${isActive ? 'text-yellow-500' : 'text-white'}`} />
                             <span className="text-2xl font-bold tracking-tight">RevYOU</span>
                         </div>
@@ -64,7 +67,7 @@ const Navbar:React.FC = () => {
                                 className={`w-full py-3 pl-12 pr-6 outline-none ${isActive ? 'bg-white placeholder-gray-400 text-gray-600' : 'bg-white/10 placeholder-white/60'} backdrop-blur-sm transition-all`}
                             />
                             {isActive && (
-                                <button onClick={()=>navigate(`/reviews/search`)} className="absolute inset-y-0 right-0 pr-4 flex items-center">
+                                <button onClick={() => navigate(`/reviews/search`)} className="absolute inset-y-0 right-0 pr-4 flex items-center">
                                     <div className="px-2 py-0.5 bg-gradient-to-r from-purple-500 to-pink-400 text-white text-xs font-medium rounded-full">
                                         ⌘K
                                     </div>
@@ -74,7 +77,7 @@ const Navbar:React.FC = () => {
                     </div>
 
                     {/* Mobile Search Toggle */}
-                    <button 
+                    <button
                         className="md:hidden p-2 rounded-full"
                         onClick={() => setSearchOpen(true)}
                     >
@@ -85,7 +88,7 @@ const Navbar:React.FC = () => {
                     {searchOpen && (
                         <div className="fixed inset-0 z-50 bg-white/90 backdrop-blur-md md:hidden">
                             <div className="flex items-center h-20 px-4">
-                                <button 
+                                <button
                                     className="p-2 mr-2"
                                     onClick={() => setSearchOpen(false)}
                                 >
@@ -99,10 +102,10 @@ const Navbar:React.FC = () => {
                                         autoFocus
                                     />
                                     <button className="absolute inset-y-0 right-0 pr-4 flex items-center">
-                                        <div onClick={()=>{
+                                        <div onClick={() => {
                                             navigate(`/reviews/search`)
                                             setSearchOpen(false)
-                                            }}  className="px-2 py-0.5 bg-gradient-to-r from-purple-500 to-pink-400 text-white text-xs font-medium rounded-full">
+                                        }} className="px-2 py-0.5 bg-gradient-to-r from-purple-500 to-pink-400 text-white text-xs font-medium rounded-full">
                                             Go
                                         </div>
                                     </button>
@@ -138,7 +141,7 @@ const Navbar:React.FC = () => {
                                         <p className="text-sm text-purple-600 truncate">user@example.com</p>
                                     </div>
                                     <div className="py-2">
-                                        <span onClick={()=>{
+                                        <span onClick={() => {
                                             navigate(`/review/profile/123`);
                                             setShowDropdown(false);
                                         }} className="flex cursor-pointer items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
@@ -174,6 +177,10 @@ const Navbar:React.FC = () => {
                             )}
                         </div>
                     </div>
+                    {
+                        mobileMenuOpen &&
+                        <MobileMenu setMobileMenuOpen={setMobileMenuOpen} isActive={isActive} setSearchOpen={setSearchOpen} />
+                    }
                 </div>
             </div>
         </header>
